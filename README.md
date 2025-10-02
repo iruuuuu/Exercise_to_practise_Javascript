@@ -2,7 +2,7 @@
 
 ## 🚀 Bienvenido al Repositorio de Práctica Intensiva
 
-Este repositorio ha sido diseñado para consolidar el conocimiento en **JavaScript moderno (ES6+)**, centrándose en la manipulación eficiente de **Arrays** y **Objetos**.
+Este repositorio ha sido diseñado para consolidar tu conocimiento en **JavaScript moderno (ES6+)**, centrándose en la manipulación eficiente de **Arrays** y **Objetos**.
 
 Los ejercicios replican escenarios comunes de desarrollo, obligándote a utilizar los métodos funcionales que has aprendido en clase: `map`, `filter`, `reduce`, `find`, `some`, y más.
 
@@ -21,3 +21,15 @@ La práctica se enfoca en las siguientes áreas, cruciales para cualquier desarr
 | **Manipulación** | Acceso a extremos y modificación del array. | `.at()`, `.splice()`, `...` (Spread Operator) |
 
 ---
+
+## 💻 Estructura y Cómo Empezar
+
+El repositorio es directo: el 100% de tu trabajo se centrará en el archivo principal de ejercicios.
+
+### 1. Clonar el Repositorio
+
+Abre tu terminal y clona el proyecto:
+
+```bash
+git clone [URL_DE_TU_REPOSitorio]
+cd [NOMBRE_DEL_REPOSITORIO]
