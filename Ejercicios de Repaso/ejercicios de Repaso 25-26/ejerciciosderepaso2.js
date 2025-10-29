@@ -1,4 +1,4 @@
-import { productos } from "../src/db/data";
+import { productos } from "../../src/db/data";
 
 const analizarProductosPorCategoria = () =>{
 

@@ -1,4 +1,4 @@
-import { usuarios } from "../src/db/data.js";
+import { usuarios } from "../../src/db/data.js";
 
 
 //const obtenerUsuariosActivosOrdenados=(usuarios)=>{

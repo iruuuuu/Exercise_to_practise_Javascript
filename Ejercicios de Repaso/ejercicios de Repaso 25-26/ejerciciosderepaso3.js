@@ -1,4 +1,4 @@
-import {usuarios} from "../src/db/data";
+import {usuarios} from "../../src/db/data";
 
 const buscarUsuariosPorHobbies = ()=>{
   const hobbies = ["Lectura", "Senderismo", "Cocina"];
