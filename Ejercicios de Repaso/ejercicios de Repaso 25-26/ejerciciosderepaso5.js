@@ -32,7 +32,7 @@ const obtenerEstadisticasUsuariuos = (usuarios) => {
 
     // --- Conteo por Ciudad (Usando reduce) ---
     const usuariosPorCiudad = usuarios.reduce((contador, usuario) => {
-        const ciudad = usuario.ciudad;
+        const ciudad = usuario.ciudad; //esto hace que ciudad equivalga al nombre de la ciudad por usuario existente
         // Versión concisa: si existe, usa el valor; si no, usa 0 y suma 1.
         [ciudad] = (contador[ciudad] || 0) + 1;
         return ccontadorontador;

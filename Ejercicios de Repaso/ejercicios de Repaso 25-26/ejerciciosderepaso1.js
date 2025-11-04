@@ -1,17 +1,5 @@
 import { usuarios } from "../../src/db/data.js";
 
-
-//const obtenerUsuariosActivosOrdenados=(usuarios)=>{
-//    usuarios.filter(usuarios=usuarios
-//    .filter(usuarios=>usuarios.activo==true))
-//    .sort((a,b)=>a.edad-b.edad);
-//
-//    usuarios.map=[nombre,email,edad]
-//
-//    return usuarios;
-//}
-
-
 const obtenerUsuariosActivosOrdenados = (usuarios) => {
     // 1. Filtrar activos
     const activos = usuarios.filter(usuario => usuario.activo === true);

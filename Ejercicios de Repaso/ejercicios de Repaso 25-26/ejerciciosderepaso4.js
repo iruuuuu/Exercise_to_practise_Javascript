@@ -52,7 +52,7 @@ function calcularTotalPedios(pedidos) {
   }
   
 const sumaTotalProductosxPedido = (pedido) => {
-  // 2. Aplica 'reduce' al array interno 'productos'.
+  // 2. Aplica 'reduce' al array interno 'productos'
   return pedido.productos.reduce((totalAcumulado, productoActual) => {
     
     // 3. Calcula el total del producto actual usando tu primera función.
