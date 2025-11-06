@@ -1,68 +1,44 @@
-const pedidos = [
-  {
-    // Datos de Pedido
-    idPedido: 1,
-    idUsuario: 101,
-    estado: "completado", // o 'pendiente', 'cancelado', etc.
-    fecha: new Date('2025-01-15T10:00:00Z'),
-    metodoPago: "Tarjeta de Crédito", // Necesario para 'Calcular comisiones'
+import { pedidos } from "../src/db/data.js";
 
-    // Array Anidado de Productos
-    productos: [
-      {
-        idProducto: 1,
-        nombre: "Laptop",
-        cantidad: 1, // Necesario para el cálculo
-        precioUnitario: 1200.00 // Necesario para el cálculo
-      },
-      {
-        idProducto: 2,
-        nombre: "Mouse Inalámbrico",
-        cantidad: 2, // Necesario para el cálculo
-        precioUnitario: 25.50 // Necesario para el cálculo
-      }
-    ]
-  },
-  {
-    // Segundo Pedido (ejemplo)
-    idPedido: 2,
-    idUsuario: 102,
-    estado: "pendiente",
-    fecha: new Date('2025-02-20T15:30:00Z'),
-    metodoPago: "PayPal",
-    productos: [
-      {
-        idProducto: 3,
-        nombre: "Monitor 4K",
-        cantidad: 1,
-        precioUnitario: 350.00
-      }
-    ]
-  }
-  // ... más pedidos
-];
+export function calcularTotalPedidos(pedidos) {
+  // Array donde guardaremos el resumen final de cada pedido
+const resumenPedidos = [];
 
+  // Recorremos cada pedido dentro del array principal
+for (const pedido of pedidos) {
 
-function calcularTotalPedios(pedidos) {
-  
+    // 1️⃣ Inicializamos el total de ese pedido
+    let totalPedido = 0;
 
-  const calculoPedido= (cantidad , percioUnitario)=>{
-    let totalPrecioPedido= cantidad * precioUnitario;
-    return totalPrecioPedido;
-  }
-  
-const sumaTotalProductosxPedido = (pedido) => {
-  // 2. Aplica 'reduce' al array interno 'productos'
-  return pedido.productos.reduce((totalAcumulado, productoActual) => {
-    
-    // 3. Calcula el total del producto actual usando tu primera función.
-    const totalProducto = calculoPedido(productoActual.cantidad, productoActual.precioUnitario);
+    // 2️⃣ Recorremos todos los productos del pedido
+    for (const producto of pedido.productos) {
+        const cantidad = producto.cantidad;
+        const precioUnitario = producto.precioUnitario;
 
-    // 4. Suma el total del producto actual al acumulador.
-    return totalAcumulado + totalProducto;
+      // Calculamos el total de ese producto
+      const totalProducto = cantidad * precioUnitario;
 
-  }, 0); // 5. El '0' es el  valor inicial del totalAcumulado.
-}
+      // Vamos acumulando el total del pedido
+        totalPedido = totalPedido + totalProducto;
+    }
+
+    // 3️⃣ Contamos cuántos productos tiene el pedido
+    const numeroProductos = pedido.productos.length;
+
+    // 4️⃣ Creamos un nuevo objeto resumen con los datos requeridos
+    const resumen = {
+        idPedido: pedido.idPedido,
+        total: totalPedido,
+        numeroProductos: numeroProductos,
+        idUsuario: pedido.idUsuario,
+        estado: pedido.estado,
+        fecha: pedido.fecha
+    };
+
+    // 5️⃣ Lo añadimos al array final
+    resumenPedidos.push(resumen);
 }
 
-
+  // 6️⃣ Devolvemos el array con todos los resúmenes
+return resumenPedidos;
+}
